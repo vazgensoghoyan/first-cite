@@ -8,13 +8,10 @@ const button = document.querySelector('.solveIt');
 
 
 function solveEquation(a, b, c) {
-    if (a === 0) {
-        return 'Так нельзя!';
-    }
     const d = b * b - 4 * a * c;
-    if (d >= 0) {
-        const x1 = (-b-Math.sqrt(d))/2;
-        const x2 = (-b+Math.sqrt(d))/2
+    if (d >= 0 & a != 0) {
+        const x1 = (-b-Math.sqrt(d))/2/a;
+        const x2 = (-b+Math.sqrt(d))/2/a;
         return [x1, x2];
     }
     return null;
@@ -28,13 +25,19 @@ function printResult() {
     );
 
     let html = '';
-    let index = 0;
+    
+    if (ans != null) {
+        let index = 0;
 
-    ans.forEach(i => {
-        index++;
-        html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + i + '</dd>';
-    })
+        ans.forEach(i => {
+            index++;
+            html += '<dt>x' + index + '</dt>'
+            html += '<dd>' + i + '</dd>';
+        })
+    } else {
+        html = '<p>Что-то пошло не так!</p>'
+    }
+    
     
     answers.innerHTML = html;
 }
