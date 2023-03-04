@@ -10,6 +10,9 @@
         <title>some site</title>
 
         <link rel="stylesheet" href="../styles/styles.css">
+        
+        <script src="cubic.js" defer></script>
+        <script src="../scripts/complex.js" defer></script>
     </head>
     <body>
         <header>
@@ -24,6 +27,30 @@
         </header>
 
         <main>
+            <h1>Cubic equation solver!</h1>
+
+            <p>
+                Вводите данные, обозначающие четыре коэффициента для комплексного уравнения вида ax<sup>3</sup>+bx<sup>2</sup>+cx+d=0
+            </p>
+
+            <div class="input">
+                <input type="text" id="a">
+                <input type="text" id="b">
+                <input type="text" id="c">
+                <input type="text" id="d">
+            </div><br>
+            <input type="submit" value="Solve" class="solveIt">
+
+            <div class="answers">
+                <dl>
+                    <dt>x1</dt>
+                    <dd>?</dd>
+                    <dt>x2</dt>
+                    <dd>?</dd>
+                    <dt>x3</dt>
+                    <dd>?</dd>
+                </dl>
+            </div>
         </main>
 
         <br><br>
