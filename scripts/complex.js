@@ -1,7 +1,9 @@
 class Complex {
-    constructor (a, b) {
+    constructor (a, b, accuracy = 5) {
         this.re = a;
         this.im = b;
+
+        this.accuracy = accuracy;
     }
 
     get Modulus() {
@@ -67,7 +69,15 @@ class Complex {
     }
 
     toString() {
-        const accuracy = 5;
-        return parseFloat(this.re.toFixed(accuracy)) + " + i * " + parseFloat(this.im.toFixed(accuracy));
+        const re = parseFloat(this.re.toFixed(this.accuracy));
+        const im = parseFloat(this.im.toFixed(this.accuracy));
+
+        if (re == 0 & im == 0) {
+            return "0";
+        }
+        if (im == 0) {
+            return re.toString();
+        }
+        return re + " + i * " + im;
     }
 }

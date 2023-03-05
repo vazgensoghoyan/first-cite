@@ -22,7 +22,7 @@ function printResult() {
     ans.forEach(i => {
         index++;
         html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + i + '</dd>';
+        html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
     })
     
     answers.innerHTML = html;
