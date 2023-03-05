@@ -158,15 +158,15 @@ dd {
 
 @media (max-width:1600px) {
     body {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     nav {
-        height: 70px;
+        height: 65px;
     }
 
     footer {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .solveIt {
@@ -177,6 +177,10 @@ dd {
     .numberInput {
         font-size: 1.2rem;
         height: 25px;
+    }
+
+    .rights {
+        font-size: 15px;
     }
 }
 
@@ -256,6 +260,7 @@ dd {
     nav {
         font-size: 1.5em;
         height: 50px;
+        margin-bottom: 50px;
     }
 
     .solveIt {
@@ -284,6 +289,7 @@ dd {
 
     footer {
         font-size: 10px;
+        margin-top: 80px;
     }
 
     .rights {
