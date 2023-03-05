@@ -65,6 +65,9 @@ class Complex {
     }
 
     pow(n) {
+        if (this.re == 0 & this.im == 0)
+            return new Complex();
+        
         return new Complex(
             Math.pow(this.Modulus, n) * Math.cos(n * this.Arg),
             Math.pow(this.Modulus, n) * Math.sin(n * this.Arg)
@@ -72,8 +75,8 @@ class Complex {
     }
 
     toString() {
-        const re = parseFloat(this.re.toFixed(this.accuracy));
-        const im = parseFloat(this.im.toFixed(this.accuracy));
+        const re = parseFloat(parseFloat(this.re).toFixed(this.accuracy));
+        const im = parseFloat(parseFloat(this.im).toFixed(this.accuracy));
 
         if (re == 0 & im == 0) {
             return "0";

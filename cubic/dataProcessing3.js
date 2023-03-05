@@ -8,11 +8,11 @@ let answers = document.querySelector('.answers dl');
 const button = document.querySelector('.solveIt');
 
 function printResult() {
-    const ans = solveComplexEquation3(
-        Number(input1.value),
-        Number(input2.value),
-        Number(input3.value),
-        Number(input4.value)
+    const ans = solveComplexdEquation3(
+        new Complex(Number(input1.value)),
+        new Complex(Number(input2.value)),
+        new Complex(Number(input3.value)),
+        new Complex(Number(input4.value))
     );
 
     let html = '';
@@ -22,7 +22,7 @@ function printResult() {
     ans.forEach(i => {
         index++;
         html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
+        html += '<dd>' + new Complex(i.re, i.im, 5) + '</dd>';
     })
     
     answers.innerHTML = html;
