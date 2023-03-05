@@ -1,5 +1,5 @@
 class Complex {
-    constructor (a, b, accuracy = 5) {
+    constructor (a = 0, b = 0, accuracy = 5) {
         this.re = a;
         this.im = b;
 

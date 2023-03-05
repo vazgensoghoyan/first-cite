@@ -9,7 +9,7 @@ function solveComplexEquation3(a, b, c, d) {
     
     const s = solveComplexEquation2(27, 27 * q, - p * p * p);
     if (s[0].re == 0 & s[0].im == 0 & s[1].re == 0 & s[1].im == 0) {
-        return [new Complex(shift, 0), new Complex(shift, 0), new Complex(shift, 0)];
+        return [new Complex(shift), new Complex(shift), new Complex(shift)];
     }
 
     let z;
