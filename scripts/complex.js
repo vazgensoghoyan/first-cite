@@ -67,6 +67,7 @@ class Complex {
     }
 
     toString() {
-        return this.re + " + i * " + this.im;
+        const accuracy = 5;
+        return parseFloat(this.re.toFixed(accuracy)) + " + i * " + parseFloat(this.im.toFixed(accuracy));
     }
 }
