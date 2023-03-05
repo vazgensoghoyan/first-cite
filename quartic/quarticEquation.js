@@ -10,7 +10,7 @@ function solveComplexEquation4(a, b, c, d, e) {
     const shift = -A / 4;
     
     if (m == 0 & n == 0 & p == 0) {
-        return [shift, shift, shift, shift];
+        return [new Complex(shift, 0), new Complex(shift, 0), new Complex(shift, 0), new Complex(shift, 0)];
     }
 
     const cubicAnswers = solveComplexEquation3(1, m, (m * m - 4 * p) / 4, -n * n / 8);

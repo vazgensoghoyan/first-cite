@@ -47,17 +47,20 @@ class Complex {
 
     static takeRoot(number, n) {
         let answers = [];
-        let module = Math.pow(number.Modulus, 1 / n);
+
+        const module = Math.pow(number.Modulus, 1 / n);
+
         let initialArg = number.Arg / n;
-        if (number.im == 0 & number.re == 0) {
+        if (number.im == 0 & number.re == 0)
             initialArg = 0;
-        }
+        
         for (var i = 0; i < n; i++) {
             answers[i] = new Complex(
                 module * Math.cos(initialArg + 2 * Math.PI * i / n),
                 module * Math.sin(initialArg + 2 * Math.PI * i / n)
             );
         }
+        
         return answers;
     }
 
