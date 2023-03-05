@@ -29,5 +29,3 @@ function printResult() {
 }
 
 button.addEventListener('click', printResult);
-
-console.log(solveComplexEquation3(1, 1, 1, 1));
