@@ -94,36 +94,40 @@ function isNumber(char) {
 
 function stringToComplex(s) {
     let re = "";
-    let im = "";
-    
+    let im = "0";
+
     s = s.replace(/\s+/g, "");
 
-    if (s[s.length-1] != "i") {
-        return new Complex(Number(s));
-    }
-
-    if (!isNumber(s[0])) {
-        if (s[0] == "i") {
-            return new Complex(0, 1);
-        }
+    if (!isNumber(s[0]) & s[0] != "i") {
         re += s[0];
         s = s.substring(1, s.length);
-
-        if (s.length == 1) {
-            return new Complex(0, -1);
-        }
     }
-    s = s.substring(0, s.length - 1);
 
-    if (!isNumber(s[s.length - 1]))
-        s += '1';
+    m = s.split(/[+-]/);
     
-    const m = s.split(/[+-]/);
+    if (m.length == 2) {
+        re += m[0];
+        im = m[1];
+    } else {
+        if (m[0][m[0].length - 1] == "i")
+            im = m[0];
+        else
+            re += m[0];
+    }
 
-    re += m[0];
-    im += (s.includes("+") ? "" : "-") + m[1];
+    if (im.includes("i"))
+        im = im.substring(0, im.length - 1);
+    if (im == "")
+        im += "1";
+    if (s.includes("-")) {
+        im = "-" + im;
+    }
+    if (re == "-") {
+        re = "";
+        im = "-" + im;
+    }
 
-    return new Complex(parseFloat(re), parseFloat(im));
+    return new Complex(parseFloat((re == "") ? "0" : re), parseFloat(im));
 }
 
 /*console.log(stringToComplex("1 + 2i"), new Complex(1, 2))
@@ -136,4 +140,6 @@ console.log(stringToComplex("0"), new Complex())
 console.log(stringToComplex("-i"), new Complex(0, -1))
 console.log(stringToComplex("i"), new Complex(0, 1))
 console.log(stringToComplex("-23"), new Complex(-23))
-console.log(stringToComplex("1345"), new Complex(1345))*/
+console.log(stringToComplex("1345"), new Complex(1345))
+console.log(stringToComplex("2i"), new Complex(0, 2))
+console.log(stringToComplex("-17i"), new Complex(0, -17))*/
