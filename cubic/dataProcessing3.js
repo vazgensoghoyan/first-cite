@@ -9,12 +9,12 @@ const button = document.querySelector('.solveIt');
 
 function printResult() {
     const ans = solveComplexEquation3(
-        new Complex(Number(input1.value)),
-        new Complex(Number(input2.value)),
-        new Complex(Number(input3.value)),
-        new Complex(Number(input4.value))
+        stringToComplex(input1.value),
+        stringToComplex(input2.value),
+        stringToComplex(input3.value),
+        stringToComplex(input4.value)
     );
-
+        
     let html = '';
     
     let index = 0;
@@ -22,7 +22,7 @@ function printResult() {
     ans.forEach(i => {
         index++;
         html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + new Complex(i.re, i.im, 3) + '</dd>';
+        html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
     })
     
     answers.innerHTML = html;

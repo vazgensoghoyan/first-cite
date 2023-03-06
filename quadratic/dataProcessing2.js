@@ -7,7 +7,7 @@ let answers = document.querySelector('.answers dl');
 const button = document.querySelector('.solveIt');
 
 function printResult() {
-    const ans = solveComplexdEquation2(
+    const ans = solveComplexEquation2(
         stringToComplex(input1.value),
         stringToComplex(input2.value),
         stringToComplex(input3.value)
