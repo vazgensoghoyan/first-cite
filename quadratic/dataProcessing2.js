@@ -7,10 +7,10 @@ let answers = document.querySelector('.answers dl');
 const button = document.querySelector('.solveIt');
 
 function printResult() {
-    const ans = solveComplexEquation2(
-        Number(input1.value),
-        Number(input2.value),
-        Number(input3.value)
+    const ans = solveComplexdEquation2(
+        stringToComplex(input1.value),
+        stringToComplex(input2.value),
+        stringToComplex(input3.value)
     );
 
     let html = '';

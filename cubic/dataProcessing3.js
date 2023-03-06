@@ -8,7 +8,7 @@ let answers = document.querySelector('.answers dl');
 const button = document.querySelector('.solveIt');
 
 function printResult() {
-    const ans = solveComplexdEquation3(
+    const ans = solveComplexEquation3(
         new Complex(Number(input1.value)),
         new Complex(Number(input2.value)),
         new Complex(Number(input3.value)),
@@ -22,7 +22,7 @@ function printResult() {
     ans.forEach(i => {
         index++;
         html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + new Complex(i.re, i.im, 5) + '</dd>';
+        html += '<dd>' + new Complex(i.re, i.im, 3) + '</dd>';
     })
     
     answers.innerHTML = html;

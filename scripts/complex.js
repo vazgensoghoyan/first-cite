@@ -87,3 +87,53 @@ class Complex {
         return re + " + i * " + im;
     }
 }
+
+function isNumber(char) {
+    return /^\d$/.test(char);
+}
+
+function stringToComplex(s) {
+    let re = "";
+    let im = "";
+    
+    s = s.replace(/\s+/g, "");
+
+    if (s[s.length-1] != "i") {
+        return new Complex(Number(s));
+    }
+
+    if (!isNumber(s[0])) {
+        if (s[0] == "i") {
+            return new Complex(0, 1);
+        }
+        re += s[0];
+        s = s.substring(1, s.length);
+
+        if (s.length == 1) {
+            return new Complex(0, -1);
+        }
+    }
+    s = s.substring(0, s.length - 1);
+
+    if (!isNumber(s[s.length - 1]))
+        s += '1';
+    
+    const m = s.split(/[+-]/);
+
+    re += m[0];
+    im += (s.includes("+") ? "" : "-") + m[1];
+
+    return new Complex(parseFloat(re), parseFloat(im));
+}
+
+/*console.log(stringToComplex("1 + 2i"), new Complex(1, 2))
+console.log(stringToComplex("- 1 - 2i"), new Complex(-1, -2))
+console.log(stringToComplex("-   1+ 2i  "), new Complex(-1, 2))
+console.log(stringToComplex("1-   2i"), new Complex(1, -2))
+console.log(stringToComplex("13+i  "), new Complex(13, 1))
+console.log(stringToComplex("-134-i"), new Complex(-134, -1))
+console.log(stringToComplex("0"), new Complex())
+console.log(stringToComplex("-i"), new Complex(0, -1))
+console.log(stringToComplex("i"), new Complex(0, 1))
+console.log(stringToComplex("-23"), new Complex(-23))
+console.log(stringToComplex("1345"), new Complex(1345))*/
