@@ -39,8 +39,8 @@ li a:hover {
 
 nav {
     height: 65px;
-    flex: 100%;
     display: flex;
+    flex: 100%;
     margin-bottom: 100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
