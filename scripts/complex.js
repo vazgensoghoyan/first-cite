@@ -102,17 +102,21 @@ function stringToComplex(s) {
     }
 
     m = s.split(/[+-]/);
-    
+
     if (m.length == 2) {
         re = zn + m[0];
         im = m[1];
-    } else {
+        if (im[im.length - 1] != "i")
+            return new Complex(NaN);
+    } else if (m.length == 1) {
         if (m[0][m[0].length - 1] == "i")
             im = zn + m[0];
         else
             re = zn + m[0];
+    } else {
+        return new Complex(NaN);
     }
-    
+
     if (im != "0")
         im = im.substring(0, im.length - 1);
     if (im == "" | im == "-")
@@ -120,11 +124,11 @@ function stringToComplex(s) {
     if (s.includes("-"))
         im = "-" + im;
 
-    return new Complex(parseFloat((re == "") ? "0" : re), parseFloat(im));
+    return new Complex(Number((re == "") ? "0" : re), Number(im));
 }
 
 
-console.log(stringToComplex("1 + 2i"), new Complex(1, 2))
+/*console.log(stringToComplex("1 + 2i"), new Complex(1, 2))
 console.log(stringToComplex("- 1 - 2i"), new Complex(-1, -2))
 console.log(stringToComplex("-   1+ 2i  "), new Complex(-1, 2))
 console.log(stringToComplex("1-   2i"), new Complex(1, -2))
@@ -136,4 +140,5 @@ console.log(stringToComplex("i"), new Complex(0, 1))
 console.log(stringToComplex("-23"), new Complex(-23))
 console.log(stringToComplex("1345"), new Complex(1345))
 console.log(stringToComplex("2i"), new Complex(0, 2))
-console.log(stringToComplex("-17i"), new Complex(0, -17))
+console.log(stringToComplex("-17i"), new Complex(0, -17))*/
+console.log(stringToComplex("32-2"))

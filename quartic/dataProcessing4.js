@@ -17,14 +17,19 @@ function printResult() {
         Number(input5.value)
     );
 
-    let html = '';
-    
+    let html = "";
+
     let index = 0;
 
-    ans.forEach(i => {
+    ans.every(i => {
+        if (isNaN(i.re) | isNaN(i.im)) {
+            html = '<p>Упс! Что то пошло не так. Вероятно, ошибка в водимых данных.</p>'
+            return false;
+        }
         index++;
         html += '<dt>x' + index + '</dt>'
-        html += '<dd>' + i + '</dd>';
+        html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
+        return true;
     })
     
     answers.innerHTML = html;

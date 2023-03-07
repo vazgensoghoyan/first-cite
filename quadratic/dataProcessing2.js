@@ -13,20 +13,20 @@ function printResult() {
         stringToComplex(input3.value)
     );
 
-    let html = '';
-    
-    if (ans != null) {
-        let index = 0;
+    let html = "";
 
-        ans.forEach(i => {
-            index++;
-            html += '<dt>x' + index + '</dt>'
-            html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
-        })
-    } else {
-        html = '<p>Что-то пошло не так!</p>'
-    }
-    
+    let index = 0;
+
+    ans.every(i => {
+        if (isNaN(i.re) | isNaN(i.im)) {
+            html = '<p>Упс! Что то пошло не так. Вероятно, ошибка в водимых данных.</p>'
+            return false;
+        }
+        index++;
+        html += '<dt>x' + index + '</dt>'
+        html += '<dd>' + new Complex(i.re, i.im, 10) + '</dd>';
+        return true;
+    })
     
     answers.innerHTML = html;
 }
