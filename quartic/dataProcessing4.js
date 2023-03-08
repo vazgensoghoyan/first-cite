@@ -10,11 +10,11 @@ const button = document.querySelector('.solveIt');
 
 function printResult() {
     const ans = solveComplexEquation4(
-        Number(input1.value),
-        Number(input2.value),
-        Number(input3.value),
-        Number(input4.value),
-        Number(input5.value)
+        stringToComplex(input1.value),
+        stringToComplex(input2.value),
+        stringToComplex(input3.value),
+        stringToComplex(input4.value),
+        stringToComplex(input5.value)
     );
 
     let html = "";
